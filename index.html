@@ -331,15 +331,90 @@ background:#02030a;background-image:radial-gradient(1.5px 1.5px at 12% 18%,#fff,
 .sh-bar i{display:block;height:100%;border-radius:99px;transition:width .6s ease}
 .sh-reset{margin-top:20px;background:none;border:0;border-bottom:2px solid currentColor;padding:0 0 2px;color:#3a4052;font-size:.9rem}
 .sh-reset:focus-visible{outline:3px solid #14161f;outline-offset:4px}
-@media (prefers-reduced-motion:no-preference){.stats-home{animation:rise .6s 1.05s backwards}}
+@media (prefers-reduced-motion:no-preference){.stats-home{animation:rise .6s 1.4s backwards}}
 @media (prefers-reduced-motion:reduce){.sh-bar i{transition:none}}
+/* Marvel: Comic-Look in Rot, Schwarz und Gelb */
+body[data-theme="mv"]{--red:#ec1d24;--ink:#111;--yel:#ffd400;color:#111;font-family:Barlow,Arial,sans-serif;font-weight:700;background:#ec1d24 radial-gradient(rgba(0,0,0,.18) 2px,transparent 2.5px) 0 0/16px 16px;background-attachment:fixed}
+[data-theme="mv"] h1,[data-theme="mv"] h2{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;letter-spacing:.03em;line-height:1}
+[data-theme="mv"] h2{font-size:clamp(1.7rem,6vw,2.3rem);color:#111}
+[data-theme="mv"] p{color:#222}
+[data-theme="mv"] .panel{background:#fff;border:4px solid #111;border-radius:0;box-shadow:8px 8px 0 #111;padding:clamp(22px,6vw,36px)}
+[data-theme="mv"] .meta{color:#444;font-weight:700}
+[data-theme="mv"] .bar{height:14px;background:#fff;border:3px solid #111;border-radius:0}
+[data-theme="mv"] .bar i{background:#ec1d24;border-radius:0}
+[data-theme="mv"] .tier{display:inline-block;background:#111;color:#ffd400;padding:2px 10px;border-radius:0;font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:1.1rem;letter-spacing:.08em;margin-top:12px}
+[data-theme="mv"] .opts{gap:12px}
+[data-theme="mv"] .opt{background:#fff;color:#111;border:3px solid #111;border-radius:0;box-shadow:4px 4px 0 #111;padding:12px 14px;font-size:1.1rem;font-weight:700;transition:transform .12s,box-shadow .12s,background .12s}
+[data-theme="mv"] .opt:hover:not(:disabled){background:#ffd400;transform:translate(-2px,-2px);box-shadow:6px 6px 0 #111}
+[data-theme="mv"] .opt.right{background:#19b45a;color:#fff;transform:none;box-shadow:4px 4px 0 #111}
+[data-theme="mv"] .opt.wrong{background:#ec1d24;color:#fff;transform:none;box-shadow:4px 4px 0 #111}
+[data-theme="mv"] .opt:focus-visible,[data-theme="mv"] .start:focus-visible,[data-theme="mv"] .next:focus-visible{outline:3px solid #111;outline-offset:3px}
+[data-theme="mv"] .fact{color:#ec1d24;font-weight:700}
+[data-theme="mv"] .start,[data-theme="mv"] .next{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:1.5rem;letter-spacing:.06em;background:#ec1d24;color:#fff;border:3px solid #111;border-radius:0;box-shadow:5px 5px 0 #111;padding:8px 26px}
+[data-theme="mv"] .start:active,[data-theme="mv"] .next:active{transform:translate(3px,3px);box-shadow:2px 2px 0 #111}
+[data-theme="mv"] .ghost{background:#fff;color:#111}
+[data-theme="mv"] .score{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:6rem;line-height:1;color:#ec1d24;text-shadow:3px 3px 0 #111}
+[data-theme="mv"] .kpi{background:#fff;border:3px solid #111;border-radius:0}
+[data-theme="mv"] .kpi b{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:2rem;color:#ec1d24}
+[data-theme="mv"] .kpi span{color:#444}
+[data-theme="mv"] .row{grid-template-columns:110px 1fr 44px}
+[data-theme="mv"] .dot{background:#eee;border:2px solid #111;border-radius:0;color:#555}
+[data-theme="mv"] .dot.ok{background:#19b45a;color:#fff}
+[data-theme="mv"] .dot.no{background:#ec1d24;color:#fff}
+[data-theme="mv"] .ring circle:first-child{stroke:#ddd}
+[data-theme="mv"] #arc{stroke:#ec1d24}
+[data-theme="mv"] #pct{fill:#111;font-family:"Bebas Neue",Impact,sans-serif;font-size:30px}
+.pick-mv{background:#ec1d24 radial-gradient(rgba(0,0,0,.2) 2px,transparent 2.5px) 0 0/14px 14px;color:#fff;border-radius:2px;box-shadow:inset 0 0 0 4px #111}
+.pick-mv::before{width:62px;height:62px;background:#ffd400;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.pick-mv b{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:3rem;line-height:1;letter-spacing:.03em;background:#111;color:#fff;padding:.02em .25em;align-self:flex-start;transform:rotate(-2deg)}
+.pick-mv span{font-size:1.05rem;font-weight:700;margin-top:12px}
+.pick-mv i{color:#ffd400}
+
+/* The Witcher: dunkel, Gold und Silber, Katzenauge */
+body[data-theme="wi"]{--gold:#c8a24a;--silver:#b8c2cc;--blood:#9c1c1c;--mute:#9a9181;color:#d9d4c7;font-family:"EB Garamond",Georgia,serif;font-weight:500;background:#09090b radial-gradient(ellipse 80% 50% at 50% 0,#1f1b15,transparent 70%),radial-gradient(ellipse 60% 40% at 50% 120%,#2a0f0f,transparent 70%);background-attachment:fixed}
+[data-theme="wi"] h1,[data-theme="wi"] h2{font-family:Cinzel,Georgia,serif;font-weight:700;letter-spacing:.04em;line-height:1.3}
+[data-theme="wi"] h2{font-size:clamp(1.2rem,4.2vw,1.6rem);color:#efe9d8}
+[data-theme="wi"] p{color:#cfc8b6}
+[data-theme="wi"] .panel{background:#12100c;border:1px solid #5a4a2a;border-radius:2px;box-shadow:inset 0 0 0 5px #12100c,inset 0 0 0 6px #5a4a2a,0 24px 48px rgba(0,0,0,.65);padding:clamp(24px,6vw,40px)}
+[data-theme="wi"] .meta{color:var(--mute);font-weight:500}
+[data-theme="wi"] .bar{height:4px;background:#2a2418;border:0}
+[data-theme="wi"] .bar i{background:var(--gold)}
+[data-theme="wi"] .tier{background:none;padding:0;color:var(--gold);font-family:Cinzel,Georgia,serif;font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:12px}
+[data-theme="wi"] .opts{gap:10px}
+[data-theme="wi"] .opt{background:rgba(255,255,255,.03);color:#e6e0d0;border:1px solid #4a3f28;border-radius:2px;padding:12px 16px;font-size:1.2rem;font-weight:500}
+[data-theme="wi"] .opt:hover:not(:disabled){background:rgba(200,162,74,.12);border-color:var(--gold);color:#fff}
+[data-theme="wi"] .opt.right{background:rgba(200,162,74,.22);border-color:var(--gold);color:#fff;box-shadow:0 0 14px rgba(200,162,74,.3)}
+[data-theme="wi"] .opt.wrong{background:rgba(156,28,28,.38);border-color:#b02a2a;color:#f3dcdc}
+[data-theme="wi"] .opt:focus-visible,[data-theme="wi"] .start:focus-visible,[data-theme="wi"] .next:focus-visible{outline:2px solid var(--silver);outline-offset:3px}
+[data-theme="wi"] .fact{color:var(--gold);font-style:italic;font-weight:500}
+[data-theme="wi"] .start,[data-theme="wi"] .next{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:#1a1409;border:0;border-radius:2px;padding:12px 24px}
+[data-theme="wi"] .start:active,[data-theme="wi"] .next:active{transform:none;filter:brightness(.9)}
+[data-theme="wi"] .ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+[data-theme="wi"] .score{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:4rem;color:var(--gold);text-shadow:0 0 18px rgba(200,162,74,.3)}
+[data-theme="wi"] .kpi{background:rgba(255,255,255,.03);border:1px solid #4a3f28;border-radius:2px}
+[data-theme="wi"] .kpi b{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:1.4rem;color:var(--gold)}
+[data-theme="wi"] .kpi span{color:var(--mute)}
+[data-theme="wi"] .row{grid-template-columns:110px 1fr 44px}
+[data-theme="wi"] .dot{background:#14110d;border:1px solid #4a3f28;border-radius:2px;color:var(--mute)}
+[data-theme="wi"] .dot.ok{background:#6d5a22;color:#fff;border-color:var(--gold)}
+[data-theme="wi"] .dot.no{background:#5c1414;color:#fff;border-color:#b02a2a}
+[data-theme="wi"] .ring circle:first-child{stroke:#2a2418}
+[data-theme="wi"] #arc{stroke:var(--gold)}
+[data-theme="wi"] #pct{fill:var(--gold);font-family:Cinzel,Georgia,serif;font-weight:700;font-size:24px}
+.pick-wi{background:#09090b radial-gradient(ellipse at 85% 0,#2b2316,transparent 60%),linear-gradient(160deg,#17130e,#09090b);color:#d9d4c7;border-radius:2px;box-shadow:inset 0 0 0 1px #5a4a2a,inset 0 0 0 6px #0d0b08,inset 0 0 0 7px #5a4a2a}
+.pick-wi::before{width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 50% 40%,#e0bf63,#9a7a2c 70%);border:3px solid #b8c2cc;box-shadow:0 0 16px rgba(200,162,74,.45)}
+.pick-wi::after{content:"";position:absolute;top:34px;right:47px;width:8px;height:34px;border-radius:50%;background:#050505}
+.pick-wi b{font-family:Cinzel,Georgia,serif;font-weight:700;font-size:1.9rem;line-height:1.15;letter-spacing:.06em;color:#c8a24a}
+.pick-wi span{font-family:"EB Garamond",Georgia,serif;font-size:1.25rem;color:#bdb6a4}
+.pick-wi i{color:#b8c2cc;font-family:Cinzel,Georgia,serif;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase}
+@media (prefers-reduced-motion:no-preference){.pick-mv{animation:rise .6s 1.04s backwards}.pick-wi{animation:rise .6s 1.16s backwards}}
 </style>
 </head>
 <body data-theme="home">
 <main>
   <section id="intro">
     <h1>Sirius,<br>Zeit, die Universen zu erobern.</h1>
-    <p class="home-sub">Alles Gute zum Geburtstag! Sechs Quizze warten auf dich, jedes mit 28 Fragen, die Stufe für Stufe schwerer werden.</p>
+    <p class="home-sub">Alles Gute zum Geburtstag! Acht Quizze warten auf dich, jedes mit 28 Fragen, die Stufe für Stufe schwerer werden.</p>
     <div class="picks">
       <button class="pick pick-dc" data-quiz="dc"><b>DC-Universum</b><span>Batman, Superman, Flash und mehr</span><i>Quiz starten</i></button>
       <button class="pick pick-lotr" data-quiz="lotr"><b>Herr der Ringe</b><span>Mittelerde, Gefährten und der Eine Ring</span><i>Quiz starten</i></button>
@@ -347,6 +422,8 @@ background:#02030a;background-image:radial-gradient(1.5px 1.5px at 12% 18%,#fff,
       <button class="pick pick-poke" data-quiz="poke"><b>Pokémon</b><span>Pikachu, Starter, Arenaleiter und mehr</span><i>Quiz starten</i></button>
       <button class="pick pick-got" data-quiz="got"><b>Game of Thrones</b><span>Westeros, die Häuser und der Eiserne Thron</span><i>Quiz starten</i></button>
       <button class="pick pick-sw" data-quiz="sw"><b>Star Wars</b><span>Jedi, Sith, Rebellen und eine weit, weit entfernte Galaxis</span><i>Quiz starten</i></button>
+      <button class="pick pick-mv" data-quiz="mv"><b>Marvel</b><span>Avengers, Guardians, Wakanda und die sechs Infinity-Steine</span><i>Quiz starten</i></button>
+      <button class="pick pick-wi" data-quiz="wi"><b>The Witcher</b><span>Hexer, Zauberinnen, Monster und der Kontinent</span><i>Quiz starten</i></button>
     </div>
     <div class="stats-home" id="homeStats">
       <h2>Deine Statistik</h2>
@@ -588,6 +665,66 @@ const SW=mkL([
   ["Von welchem Sith erzählt Palpatine Anakin, er habe die Macht nutzen können, um Leben zu erschaffen?",["Darth Plagueis","Darth Bane","Darth Tenebrous","Darth Sidious"],0,"Palpatine erzählt Anakin davon in Episode III."],
   ["Wer schrieb den ersten Drehbuchentwurf zu Das Imperium schlägt zurück?",["Leigh Brackett","Gary Kurtz","Irvin Kershner","Ralph McQuarrie"],0,"Brackett starb 1978, Lawrence Kasdan übernahm das Drehbuch."]
 ]);
+const MV=mkL([
+  ["Wie heißt Tony Starks Superheldenidentität?",["Iron Man","War Machine","Ant-Man","Falcon"],0,"Tony Stark baut seinen ersten Anzug in Gefangenschaft in einer Höhle."],
+  ["Wie heißt Thors Hammer?",["Stormbreaker","Mjölnir","Gungnir","Jarnbjorn"],1,"Stormbreaker ist die Axt, die Thor später in Infinity War erhält."],
+  ["Wer verwandelt sich bei Wut in einen grünen Riesen?",["Bruce Banner","Peter Parker","Scott Lang","Steve Rogers"],0,"Als Hulk gehört er zu den stärksten Avengers."],
+  ["Wie heißt Spider-Man mit bürgerlichem Namen?",["Miles Morales","Peter Parker","Ben Reilly","Eddie Brock"],1,"Miles Morales ist der Spider-Man aus den Spider-Verse-Filmen."],
+  ["Wie heißt das Land von Black Panther?",["Sokovia","Wakanda","Latveria","Genosha"],1,"Wakanda ist die Heimat des Metalls Vibranium."],
+  ["Wer sammelt in Infinity War die Infinity-Steine?",["Loki","Ultron","Thanos","Red Skull"],2,"Mit dem Fingerschnipsen löscht er die Hälfte allen Lebens aus."],
+  ["Welcher Avenger ist ein Meisterschütze mit Pfeil und Bogen?",["Black Widow","Hawkeye","Falcon","Winter Soldier"],1,"Hawkeye heißt mit bürgerlichem Namen Clint Barton."],
+  ["Wie heißt Thors Adoptivbruder?",["Heimdall","Baldur","Loki","Hela"],2,"Loki ist der Gott des Schabernacks."],
+  ["Wie heißt die KI, die zuerst Tony Starks Anzug und Haus steuert?",["F.R.I.D.A.Y.","J.A.R.V.I.S.","E.D.I.T.H.","K.A.R.E.N."],1,"Aus J.A.R.V.I.S. wird später die Grundlage für Vision."],
+  ["Wie viele Infinity-Steine gibt es?",["Fünf","Sechs","Sieben","Acht"],1,"Raum, Realität, Macht, Seele, Zeit und Gedanken."],
+  ["Wie heißt Star-Lord mit bürgerlichem Namen?",["Peter Quill","Peter Parker","Scott Lang","Sam Wilson"],0,"Peter Quill wurde als Kind von der Erde entführt."],
+  ["Wie heißt Black Widow mit bürgerlichem Namen?",["Natasha Romanoff","Wanda Maximoff","Carol Danvers","Pepper Potts"],0,"Natasha wurde im Red Room zur Spionin ausgebildet."],
+  ["In welcher Stadt kämpfen die Avengers im ersten Film gegen die Chitauri?",["New York","Los Angeles","Washington D.C.","Chicago"],0,"Die Schlacht von New York ist ein Wendepunkt im MCU."],
+  ["Welcher Infinity-Stein steckt in Visions Stirn?",["Seelenstein","Gedankenstein","Zeitstein","Raumstein"],1,"Zuvor steckte der Gedankenstein in Lokis Zepter."],
+  ["Wie heißt Ant-Man in den Filmen mit bürgerlichem Namen?",["Hank Pym","Scott Lang","Sam Wilson","Clint Barton"],1,"Hank Pym war der erste Ant-Man."],
+  ["Wie heißt die Heimatwelt der Asen?",["Midgard","Asgard","Vanaheim","Nidavellir"],1,"Midgard ist der Name der Erde."],
+  ["Wie heißt Gamoras Adoptivschwester?",["Mantis","Nebula","Okoye","Valkyrie"],1,"Beide wurden von Thanos großgezogen."],
+  ["Was war Stephen Strange vor seinem Unfall?",["Kardiologe","Neurochirurg","Pilot","Archäologe"],1,"Nach dem Unfall kann er seine Hände nicht mehr ruhig halten."],
+  ["Wie heißt die Elitegarde aus Kriegerinnen in Wakanda?",["Dora Milaje","Jabari","Kimoyo","Ten Rings"],0,"Okoye ist ihre Generalin."],
+  ["Wer ist der Gegenspieler in Spider-Man: Homecoming?",["Mysterio","Vulture","Green Goblin","Doctor Octopus"],1,"Vulture heißt mit bürgerlichem Namen Adrian Toomes."],
+  ["Wie heißt die Organisation, die Nick Fury leitet?",["HYDRA","S.H.I.E.L.D.","A.I.M.","Ten Rings"],1,"HYDRA ist die Organisation, die S.H.I.E.L.D. unterwandert."],
+  ["In welchem Jahr kam Iron Man, der erste Film des MCU, in die Kinos?",["2006","2008","2010","2012"],1,"Es war der Beginn der Infinity-Saga."],
+  ["Wie heißt Thanos' Heimatplanet?",["Xandar","Titan","Knowhere","Sakaar"],1,"Dort kämpfen die Guardians und Avengers in Infinity War gegen ihn."],
+  ["Wer ist Peter Quills Vater?",["Yondu","Ego","Thanos","Kang"],1,"Ego ist ein lebender Planet."],
+  ["Auf welchem Planeten ist Thor in Ragnarok in einer Arena gefangen?",["Xandar","Vormir","Sakaar","Hala"],2,"Der Grandmaster herrscht über Sakaar."],
+  ["Was verlangt der Seelenstein auf Vormir?",["Ein Auge","Das Opfer einer geliebten Person","Zehn Jahre Lebenszeit","Eine Erinnerung"],1,"Gamora wird von Thanos geopfert, später opfert sich Black Widow."],
+  ["Welcher Stein steckt im Auge von Agamotto?",["Raumstein","Zeitstein","Seelenstein","Machtstein"],1,"Doctor Strange nutzt ihn in Doctor Strange und in Infinity War."],
+  ["Aus welchem Land stammen Wanda und Pietro Maximoff?",["Latveria","Sokovia","Genosha","Transia"],1,"Sokovia wird in Age of Ultron schwer zerstört."]
+]);
+const WI=mkL([
+  ["Wie heißt der Hexer, um den sich The Witcher dreht?",["Geralt von Riva","Vesemir","Lambert","Eskel"],0,"Er ist auch als der Weiße Wolf bekannt."],
+  ["Wie heißt Geralts Pferd?",["Blitz","Plötze","Sturmwind","Schatten"],1,"Im englischen Original heißt sie Roach."],
+  ["Gegen wen setzt Geralt sein Silberschwert ein?",["Gegen Räuber","Gegen Monster","Gegen Soldaten","Gegen Magier"],1,"Das Stahlschwert trägt er für Menschen und Tiere."],
+  ["Welche Zauberin duftet nach Flieder und Stachelbeeren?",["Triss Merigold","Yennefer von Vengerberg","Keira Metz","Philippa Eilhart"],1,"Yennefer ist eine der wichtigsten Frauen in Geralts Leben."],
+  ["Wie heißt der Barde, der Geralt oft begleitet?",["Zoltan","Rittersporn","Emhyr","Dijkstra"],1,"Im englischen Original heißt er Jaskier."],
+  ["Wie heißt Geralts Ziehtochter?",["Triss","Ciri","Fringilla","Anna"],1,"Ciri ist die Erbin des Throns von Cintra."],
+  ["Welches Tier ist das Wappentier von Geralts Hexerschule?",["Katze","Greif","Wolf","Viper"],2,"Es gibt noch die Schulen von Katze, Greif, Viper und Bär."],
+  ["Wie heißt die Festung, in der Geralt zum Hexer wurde?",["Oxenfurt","Kaer Morhen","Novigrad","Vizima"],1,"Sie liegt in den Bergen von Kaedwen."],
+  ["Wie heißt Geralts väterlicher Mentor?",["Eskel","Lambert","Vesemir","Coën"],2,"Vesemir ist der älteste Hexer von Kaer Morhen."],
+  ["Wie heißt das Kartenspiel in The Witcher 3?",["Tarock","Gwint","Skat","Rommé"],1,"Aus Gwint wurde später ein eigenes Spiel."],
+  ["Welches Reich wird von Kaiser Emhyr regiert?",["Redanien","Temerien","Nilfgaard","Kaedwen"],2,"Nilfgaard ist das mächtige Imperium im Süden."],
+  ["Wie heißt das Hexerzeichen, das Gegner mit einer Druckwelle zurückschleudert?",["Igni","Aard","Quen","Yrden"],1,"Igni erzeugt Feuer."],
+  ["Wie heißt die rothaarige Zauberin, die in den Spielen eine mögliche Liebe Geralts ist?",["Philippa Eilhart","Fringilla Vigo","Triss Merigold","Keira Metz"],2,"Triss ist eine enge Vertraute des Hexers."],
+  ["Wer schrieb die Romane, auf denen The Witcher basiert?",["Stanisław Lem","Andrzej Sapkowski","Terry Pratchett","J. K. Rowling"],1,"Sapkowski ist Pole."],
+  ["Wie heißt das Inselreich der Nordmänner in The Witcher 3?",["Toussaint","Velen","Skellige","Kovir"],2,"Toussaint ist ein Weinland im Süden, Velen ein Sumpfgebiet."],
+  ["Wie heißt Ciris Großmutter, die Löwin von Cintra?",["Pavetta","Calanthe","Visenna","Yennefer"],1,"Calanthe ist die Mutter von Pavetta."],
+  ["Wie heißt der König von Redanien in The Witcher 3?",["Foltest","Demawend","Radovid","Henselt"],2,"Foltest war König von Temerien."],
+  ["Wie heißt der Anführer der Wilden Jagd?",["Imlerith","Eredin","Caranthir","Emhyr"],1,"Die Wilde Jagd jagt Ciri durch die Welten."],
+  ["Welches besondere Erbe trägt Ciri in sich?",["Drachenblut","Vampirblut","Das Ältere Blut der Elfen","Hexergift"],2,"Das Erbe geht auf die Elfe Lara Dorren zurück."],
+  ["Mit welchem Zeichen schützt sich Geralt mit einer Barriere?",["Igni","Axii","Yrden","Quen"],3,"Axii beeinflusst den Geist, Yrden legt eine Falle."],
+  ["Welche Figur ist als Herr Spiegel bekannt?",["Olgierd von Everec","Gaunter O'Dimm","Dettlaff van der Eretein","Emiel Regis"],1,"Er taucht im Add-on Hearts of Stone auf."],
+  ["Wie heißt das Ereignis, das Monster in die Welt der Menschen brachte?",["Die Große Flut","Der Sturm der Zeiten","Das Schwarze Feuer","Die Konjunktion der Sphären"],3,"Seitdem leben Menschen, Elfen, Zwerge und Monster auf dem Kontinent."],
+  ["Welcher Vampir ist Geralts enger Freund?",["Dettlaff van der Eretein","Emiel Regis","Orianna","Gaunter O'Dimm"],1,"Regis ist ein höherer Vampir und arbeitet als Barbier."],
+  ["Wie lautet Ciris voller Name?",["Cirilla Anna Maria Pavetta","Cirilla Fiona Elen Riannon","Cirilla Calanthe Ard Eilhart","Fiona Cirilla Elen Duny"],1,"Sie ist die Tochter von Pavetta und Duny."],
+  ["Wie heißt das Recht, durch das Ciri Geralts Schicksal wird?",["Das Recht des Stärkeren","Das Gesetz des Blutes","Der Hexerkodex","Das Gesetz der Überraschung"],3,"Geralt fordert, was Duny bereits besitzt, aber noch nicht kennt."],
+  ["Welcher Hexer von Kaer Morhen gilt als sarkastisch und hitzköpfig?",["Eskel","Vesemir","Lambert","Letho"],2,"Lambert ist ein Hexerbruder Geralts aus Kaer Morhen."],
+  ["Wie heißt die Prüfung, bei der angehende Hexer mutiert werden?",["Die Prüfung der Klingen","Die Kräuterprobe","Die Wolfstaufe","Das Eisenritual"],1,"Viele Kinder überleben die Kräuterprobe nicht."],
+  ["Wer spricht Geralt in den Spielen im englischen Original?",["Troy Baker","Henry Cavill","Doug Cockle","Nolan North"],2,"Henry Cavill spielte Geralt in den ersten drei Staffeln der Netflix-Serie."]
+]);
 const QUIZZES={
  dc:{q:DC,ranks:[
   [0,"Zivilist aus Gotham","Noch kein Held, aber jeder fängt mal klein an. Auf zur nächsten Runde!"],
@@ -624,7 +761,19 @@ const QUIZZES={
   [35,"Padawan","Du hast die Grundlagen, jetzt fehlt noch etwas Training."],
   [60,"Jedi-Ritter","Stark! Du kennst die Galaxis richtig gut."],
   [85,"Jedi-Meister","Fast perfekt. Selbst Yoda wäre beeindruckt."],
-  [100,"Großmeister des Jedi-Rates","Volle Punktzahl, du kennst die Galaxis in- und auswendig. Alles Gute zum 18.!"]]}
+  [100,"Großmeister des Jedi-Rates","Volle Punktzahl, du kennst die Galaxis in- und auswendig. Alles Gute zum 18.!"]]},
+ mv:{q:MV,tiers:["Zivilist","S.H.I.E.L.D.-Agent","Avenger","Infinity-Wächter"],ranks:[
+  [0,"Statist im Hintergrund","Du standest beim Chitauri-Angriff leider im Weg. Versuch es gleich nochmal!"],
+  [35,"S.H.I.E.L.D.-Rekrut","Die Grundlagen sitzen, aber Fury hat noch Aufgaben für dich."],
+  [60,"Avenger","Stark! Du gehörst zum Team."],
+  [85,"Sorcerer Supreme","Fast perfekt. Selbst Strange hat das nicht kommen sehen."],
+  [100,"Infinity-Wächter","Volle Punktzahl, du hältst alle sechs Steine in der Hand. Alles Gute zum 18.!"]]},
+ wi:{q:WI,tiers:["Dorfbewohner","Söldner","Hexer","Wolfsmeister"],ranks:[
+  [0,"Dorfbewohner","Die Monster haben dich erwischt. Versuch es gleich nochmal!"],
+  [35,"Söldner","Du schlägst dich wacker, aber der Kontinent ist gefährlich."],
+  [60,"Hexer","Stark! Dich würde man für einen Auftrag anheuern."],
+  [85,"Meister der Wolfsschule","Fast perfekt. Vesemir wäre stolz."],
+  [100,"Weißer Wolf","Volle Punktzahl, du kennst den Kontinent besser als Rittersporn. Alles Gute zum 18.!"]]}
 };
 const $=id=>document.getElementById(id);
 let i=0,score=0,locked=false,order=[],res=[],t0=0;
@@ -692,8 +841,8 @@ function finish(){
   setTimeout(()=>{$("arc").style.strokeDasharray=(339.3*pct/100)+" 339.3";document.querySelectorAll("#tiers i").forEach(e=>{e.style.width=e.dataset.w+"%"})},80);
 }
 const SKEY="siriusQuiz.v1";
-const QNAMES={dc:"DC-Universum",lotr:"Herr der Ringe",anime:"Anime",poke:"Pokémon",got:"Game of Thrones",sw:"Star Wars"};
-const QCOL={dc:"#0b3fa8",lotr:"#8f6a1e",anime:"#e60012",poke:"#306230",got:"#b3121d",sw:"#2f9bff"};
+const QNAMES={dc:"DC-Universum",lotr:"Herr der Ringe",anime:"Anime",poke:"Pokémon",got:"Game of Thrones",sw:"Star Wars",mv:"Marvel",wi:"The Witcher"};
+const QCOL={dc:"#0b3fa8",lotr:"#8f6a1e",anime:"#e60012",poke:"#306230",got:"#b3121d",sw:"#2f9bff",mv:"#ec1d24",wi:"#c8a24a"};
 const emptyStats=()=>({plays:0,ans:0,ok:0,ms:0,streak:0,q:{}});
 function loadStats(){try{const d=JSON.parse(localStorage.getItem(SKEY));if(d&&d.q)return d}catch(e){}return emptyStats()}
 function saveStats(){try{localStorage.setItem(SKEY,JSON.stringify(ST))}catch(e){}}
