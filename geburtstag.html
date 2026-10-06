@@ -162,6 +162,10 @@ body[data-theme="fr"]{--ink:#2b2340;--pink:#ff6fa5;color:var(--ink);background:#
 [data-theme="fr"] .dot{background:#fff7ec;border:3px solid var(--ink);border-radius:8px}
 [data-theme="fr"] .dot.ok{background:#b8f0c9}[data-theme="fr"] .dot.no{background:#ffc9cf}
 [data-theme="fr"] .quit{color:var(--ink)}
+main{position:relative;z-index:1}
+#fxToggle{position:fixed;right:16px;bottom:16px;z-index:50;width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,.85);background:rgba(15,18,30,.78);color:#fff;font:700 14px/1 Arial,sans-serif;letter-spacing:-1px;display:none;place-items:center;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.35);padding:0}
+#fxToggle:hover{background:rgba(15,18,30,.95);transform:scale(1.07)}
+#fxToggle:focus-visible{outline:3px solid #ffd21f;outline-offset:2px}
 </style>
 </head>
 <body data-theme="home">
@@ -387,6 +391,33 @@ $("quit").addEventListener("click",()=>{
 $("menu").addEventListener("click",()=>{document.body.dataset.theme="home";show("intro")});
 $("next").addEventListener("click",next);
 $("again").addEventListener("click",start);
+</script>
+<script>
+
+(function(){
+const cv=document.createElement('canvas');cv.id='fx';cv.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0';
+document.body.prepend(cv);
+const ctx=cv.getContext('2d');let W=0,H=0,D=1,scene=null,S=null,raf=0,last=0,T=0;
+const TAU=Math.PI*2,R=(a,b)=>b===undefined?Math.random()*a:a+Math.random()*(b-a),A=(n,f)=>Array.from({length:n},f);
+function size(){D=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*D;cv.height=H*D;ctx.setTransform(D,0,0,D,0,0)}
+const glow=(x,y,r,c0,c1)=>{const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,c0);g.addColorStop(1,c1||'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,TAU);ctx.fill()};
+const SC={};
+/* Geburtstag: Luftballons, Konfetti und Regenbogen */
+const COL=['#e40303','#ff8c00','#ffd400','#1fa84f','#1e6bff','#8a2be2','#ff4fa0'];
+SC.fr=SC.home={init:()=>({b:A(13,()=>({x:R(W),y:R(H,H*1.6),v:R(30,70),r:R(24,40),c:COL[Math.floor(R(7))],ph:R(TAU)})),c:A(70,()=>({x:R(W),y:R(H),v:R(40,110),r:R(TAU),w:R(-5,5),h:Math.floor(R(7)),s:R(6,11)}))}),draw(S,t,dt){
+ const cx=W/2,cy=H*1.02,base=Math.max(W,H)*.55;ctx.lineWidth=base*.045;COL.slice(0,6).forEach((c,i)=>{ctx.strokeStyle=c;ctx.globalAlpha=.16+.05*Math.sin(t*.8+i*.5);ctx.beginPath();ctx.arc(cx,cy,base-i*base*.045,Math.PI,TAU);ctx.stroke()});ctx.globalAlpha=1;
+ S.c.forEach(o=>{o.y+=o.v*dt;o.r+=o.w*dt;o.x+=Math.sin(o.r)*20*dt;if(o.y>H+10){o.y=-10;o.x=R(W)}ctx.save();ctx.translate(o.x,o.y);ctx.rotate(o.r);ctx.fillStyle=COL[o.h];ctx.globalAlpha=.75;ctx.fillRect(-o.s/2,-o.s/4,o.s,o.s/2*(.4+Math.abs(Math.cos(o.r*2))));ctx.restore()});
+ S.b.forEach(o=>{o.y-=o.v*dt;if(o.y<-o.r*3){o.y=H+o.r*3;o.x=R(W)}const x=o.x+Math.sin(t*.8+o.ph)*22;ctx.strokeStyle='rgba(20,22,31,.35)';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x,o.y+o.r*1.2);ctx.bezierCurveTo(x-10,o.y+o.r*2,x+10,o.y+o.r*2.6,x,o.y+o.r*3.2);ctx.stroke();ctx.globalAlpha=.85;ctx.fillStyle=o.c;ctx.beginPath();ctx.ellipse(x,o.y,o.r*.85,o.r,0,0,TAU);ctx.fill();ctx.beginPath();ctx.moveTo(x,o.y+o.r);ctx.lineTo(x-5,o.y+o.r+8);ctx.lineTo(x+5,o.y+o.r+8);ctx.fill();ctx.globalAlpha=.45;ctx.fillStyle='#fff';ctx.beginPath();ctx.ellipse(x-o.r*.35,o.y-o.r*.4,o.r*.18,o.r*.3,-.5,0,TAU);ctx.fill();ctx.globalAlpha=1})}};
+/* Steuerung */
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;let paused=false;try{paused=localStorage.getItem('fxPaused')==='1'}catch(e){}
+const bt=document.createElement('button');bt.id='fxToggle';bt.type='button';document.body.appendChild(bt);
+function lbl(){bt.textContent=paused?'\u25B6':'\u275A\u275A';bt.setAttribute('aria-label',paused?'Animation fortsetzen':'Animation anhalten');bt.title=paused?'Animation fortsetzen':'Animation anhalten'}
+bt.addEventListener('click',()=>{paused=!paused;try{localStorage.setItem('fxPaused',paused?'1':'0')}catch(e){}lbl();if(paused){cancelAnimationFrame(raf);raf=0}else if(scene){last=performance.now();raf=requestAnimationFrame(loop)}});
+function pick(){const t=document.body.getAttribute('data-theme');scene=SC[t]||null;S=scene?scene.init():null;ctx.clearRect(0,0,W,H);bt.style.display=scene&&!RM?'grid':'none';lbl();if(scene&&!RM){if(paused){scene.draw(S,T,0)}else if(!raf){last=performance.now();raf=requestAnimationFrame(loop)}}}
+function loop(n){const dt=Math.min((n-last)/1000,.05);last=n;T+=dt;ctx.clearRect(0,0,W,H);if(!scene){raf=0;return}scene.draw(S,T,dt);raf=requestAnimationFrame(loop)}
+new MutationObserver(pick).observe(document.body,{attributes:true,attributeFilter:['data-theme']});
+addEventListener('resize',()=>{size();pick()});size();pick();
+})();
 </script>
 </body>
 </html>
