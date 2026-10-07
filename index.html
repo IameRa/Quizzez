@@ -579,11 +579,16 @@ body[data-theme="retro"]{--bg:#0a0a1a radial-gradient(ellipse at 50% 0,#1b1b5a,t
 body[data-theme="retro"] :is(.start,.next,.tier){color:#10102a}
 .pick-sonic{--a:#1a5de0;--pb:#6cb4ff;--pc:#0a1c4a}.pick-sonic::before{content:"💨"}
 body[data-theme="sonic"]{--bg:#6cb4ff linear-gradient(#3a8cf0,#b8dcff);--ink:#0a1c4a;--a:#1a5de0;--pn:#f4f8ff;--op:#fff;--hv:#dbe8ff}
+.gh{display:inline-block;margin:0 0 20px;font:700 .95rem/1 "DM Sans",Barlow,system-ui,sans-serif;color:#ffd21f;background:#06214f;border:2px solid #06214f;border-radius:999px;padding:9px 16px;text-decoration:none;box-shadow:3px 3px 0 #e0262d;transition:transform .12s,box-shadow .12s}
+.gh:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 #e0262d}
+.gh:focus-visible{outline:3px solid #e0262d;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.gh{transition:none}.gh:hover{transform:none}}
 </style>
 </head>
 <body data-theme="home">
 <main>
   <section id="intro">
+    <a class="gh" href="https://iamera.github.io/GameHub/">← Alle Spiele</a>
     <h1>Zeit, die Universen zu erobern.</h1>
     <p class="home-sub">Vierunddreißig Quizze in sechs Kategorien, jedes mit 28 Fragen, die Stufe für Stufe schwerer werden. Such dir ein Thema aus und teste dein Wissen.</p>
     <div class="search"><input id="qs" type="search" placeholder="Quiz suchen, z. B. Marvel, Mathe, Rock …" aria-label="Quiz suchen" autocomplete="off" enterkeyhint="search"><button id="qx" type="button" aria-label="Suche leeren" hidden>&times;</button></div>
